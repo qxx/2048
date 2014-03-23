@@ -3,6 +3,7 @@ function HTMLActuator() {
   this.scoreContainer   = document.querySelector(".score-container");
   this.bestContainer    = document.querySelector(".best-container");
   this.messageContainer = document.querySelector(".game-message");
+  this.md5Container	= document.querySelector(".md5-container");
 
   this.score = 0;
 }
@@ -144,8 +145,13 @@ HTMLActuator.prototype.message = function (won) {
   var type    = won ? "game-won" : "game-over";
   var message = won ? "拜盟主！" : "Game Over!";
 
+  var d = new Date();
+  var input_value = d.getTime().toString();
+  var hash_value = calcMD5(input_value).toUpperCase();
+
   this.messageContainer.classList.add(type);
   this.messageContainer.getElementsByTagName("p")[0].textContent = message;
+  this.md5Container.getElementsByTagName("p")[0].textContent = hash_value;
 };
 
 HTMLActuator.prototype.clearMessage = function () {
