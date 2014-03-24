@@ -3,7 +3,7 @@ function HTMLActuator() {
   this.scoreContainer   = document.querySelector(".score-container");
   this.bestContainer    = document.querySelector(".best-container");
   this.messageContainer = document.querySelector(".game-message");
-  this.md5Container	= document.querySelector(".md5-container");
+  this.timestampContainer	= document.querySelector(".timestamp-container");
 
   this.score = 0;
 }
@@ -158,7 +158,5 @@ HTMLActuator.prototype.clearMessage = function () {
 HTMLActuator.prototype.addTimestamp = function () {
   var d = new Date();
   var input_value = d.getTime().toString();
-  var hash_value = calcMD5(input_value).toUpperCase();
-
-  this.md5Container.getElementsByTagName("p")[0].textContent = hash_value;
+  this.timestampContainer.getElementsByTagName("p")[0].textContent = input_value;
 };

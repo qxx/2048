@@ -98,7 +98,7 @@ h1.title {
 .best-container:after {
   content: "Best"; }
 
-.md5-container {
+.timestamp-container {
 	position: relative;
 	display: inline-block;
 }

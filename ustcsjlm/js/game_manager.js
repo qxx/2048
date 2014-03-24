@@ -45,11 +45,11 @@ GameManager.prototype.setup = function () {
   // Add the initial tiles
   this.addStartTiles();
 
-  // Update timestamp
-  this.addTimestamp();
-
   // Update the actuator
   this.actuate();
+
+  // Update timestamp
+  this.addTimestamp();
 };
 
 // Set up the initial tiles to start the game with
