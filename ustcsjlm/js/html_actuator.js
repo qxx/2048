@@ -144,18 +144,21 @@ HTMLActuator.prototype.updateBestScore = function (bestScore) {
 HTMLActuator.prototype.message = function (won) {
   var type    = won ? "game-won" : "game-over";
   var message = won ? "拜盟主！" : "Game Over!";
-
-  var d = new Date();
-  var input_value = d.getTime().toString();
-  var hash_value = calcMD5(input_value).toUpperCase();
-
+    
   this.messageContainer.classList.add(type);
   this.messageContainer.getElementsByTagName("p")[0].textContent = message;
-  this.md5Container.getElementsByTagName("p")[0].textContent = hash_value;
 };
 
 HTMLActuator.prototype.clearMessage = function () {
   // IE only takes one value to remove at a time.
   this.messageContainer.classList.remove("game-won");
   this.messageContainer.classList.remove("game-over");
+};
+
+HTMLActuator.prototype.addTimestamp = function () {
+  var d = new Date();
+  var input_value = d.getTime().toString();
+  var hash_value = calcMD5(input_value).toUpperCase();
+
+  this.md5Container.getElementsByTagName("p")[0].textContent = hash_value;
 };

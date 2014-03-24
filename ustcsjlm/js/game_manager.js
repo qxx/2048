@@ -45,6 +45,9 @@ GameManager.prototype.setup = function () {
   // Add the initial tiles
   this.addStartTiles();
 
+  // Update timestamp
+  this.addTimestamp();
+
   // Update the actuator
   this.actuate();
 };
@@ -65,6 +68,11 @@ GameManager.prototype.addRandomTile = function () {
     this.grid.insertTile(tile);
   }
 };
+
+// Update timestamp
+GameManager.prototype.addTimestamp = function () {
+    this.actuator.addTimestamp();
+}
 
 // Sends the updated grid to the actuator
 GameManager.prototype.actuate = function () {
